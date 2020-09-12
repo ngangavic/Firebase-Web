@@ -1,6 +1,6 @@
 // FirebaseUI config.
 var uiConfig = {
-    signInSuccessUrl: '<url-to-redirect-to-on-success>',
+    signInSuccessUrl: 'dashboard.html',
     signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -11,10 +11,10 @@ var uiConfig = {
     // tosUrl and privacyPolicyUrl accept either url string or a callback
     // function.
     // Terms of service url/callback.
-    tosUrl: '<your-tos-url>',
+    tosUrl: 'tos.html',
     // Privacy policy url/callback.
     privacyPolicyUrl: function() {
-        window.location.assign('<your-privacy-policy-url>');
+        window.location.assign('privacy-policy.html');
     }
 };
 
