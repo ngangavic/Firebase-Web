@@ -21,7 +21,7 @@
         <div class="list-group list-group-flush">
             <a href="#details" class="list-group-item list-group-item-action bg-light">My Details</a>
             <a href="#education" class="list-group-item list-group-item-action bg-light">Education</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Projects</a>
+            <a href="#project" class="list-group-item list-group-item-action bg-light">Projects</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Skills</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Reference</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Speaking Languages</a>
@@ -135,6 +135,59 @@
             </div>
             <!--education end-->
 
+<!--            project start-->
+            <div id="project" class="project">
+                <h1 class="mt-4">Project</h1>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Name</label>
+                                    <input id="project-name" placeholder="Project Name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Link to project</label>
+                                    <input id="project-link" placeholder="Link to project" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Image</label>
+                                    <input id="project-image" type="file" placeholder="Project Image" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Image View</label>
+                                    <div id="view-image">
+                                        <img src="" alt="image" width="100" height="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>About Project</label>
+                            <textarea id="about-project" placeholder="About" rows="5" class="form-control">
+                                </textarea>
+                        </div>
+                        <div class="form-group">
+                            <button id="save-project" class="btn btn-sm btn-success">Save</button>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+<!--project end-->
 
         </div>
     </div>
