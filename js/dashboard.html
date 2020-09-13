@@ -23,8 +23,7 @@
             <a href="#education" class="list-group-item list-group-item-action bg-light">Education</a>
             <a href="#project" class="list-group-item list-group-item-action bg-light">Projects</a>
             <a href="#skills" class="list-group-item list-group-item-action bg-light">Skills</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Testimonials</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Speaking Languages</a>
+            <a href="#testimonials" class="list-group-item list-group-item-action bg-light">Testimonials</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -221,13 +220,15 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Skill %</label>
-                                    <input id="skill-percentage" class="form-control" placeholder="Skill Percentage eg.60%">
+                                    <input id="skill-percentage" class="form-control"
+                                           placeholder="Skill Percentage eg.60%">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Skill Description</label>
-                                    <textarea id="skill-description" class="form-control" placeholder="Skill Description">
+                                    <textarea id="skill-description" class="form-control"
+                                              placeholder="Skill Description">
                                     </textarea>
                                 </div>
                             </div>
@@ -240,6 +241,39 @@
 
             </div>
             <!--skills end-->
+
+            <!--            Testimonials start-->
+            <div id="testimonials" class="testimonials">
+                <h1 class="mt-4">Testimonials</h1>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Person Name</label>
+                                    <input id="testimonial-name" placeholder="Person Name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input id="testimonial-company" placeholder="Company" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="testimony-text" class="form-control" placeholder="Testimony"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-testimony">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--            Testimonials end-->
+
         </div>
     </div>
     <!-- /#page-content-wrapper -->
