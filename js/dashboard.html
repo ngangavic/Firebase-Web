@@ -22,8 +22,8 @@
             <a href="#details" class="list-group-item list-group-item-action bg-light">My Details</a>
             <a href="#education" class="list-group-item list-group-item-action bg-light">Education</a>
             <a href="#project" class="list-group-item list-group-item-action bg-light">Projects</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Skills</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light">Reference</a>
+            <a href="#skills" class="list-group-item list-group-item-action bg-light">Skills</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light">Testimonials</a>
             <a href="#" class="list-group-item list-group-item-action bg-light">Speaking Languages</a>
         </div>
     </div>
@@ -54,7 +54,7 @@
 
         <div class="container-fluid">
 
-<!--            my details start-->
+            <!--            my details start-->
             <div class="details" id="details">
                 <h1 class="mt-4">My Details</h1>
                 <div class="card">
@@ -100,7 +100,7 @@
                     </div>
                 </div>
             </div>
-<!--            my details end-->
+            <!--            my details end-->
 
 
             <!--            education start-->
@@ -122,7 +122,7 @@
 
                         <div class="form-group">
                             <label>Dates</label>
-                            <input id="dates"placeholder="Eg. 2010-2020" class="form-control">
+                            <input id="dates" placeholder="Eg. 2010-2020" class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -135,7 +135,7 @@
             </div>
             <!--education end-->
 
-<!--            project start-->
+            <!--            project start-->
             <div id="project" class="project">
                 <h1 class="mt-4">Project</h1>
 
@@ -161,7 +161,8 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Project Image</label>
-                                    <input id="project-image" type="file" placeholder="Project Image" class="form-control">
+                                    <input id="project-image" type="file" placeholder="Project Image"
+                                           class="form-control">
                                 </div>
                             </div>
                             <div class="col">
@@ -187,8 +188,58 @@
                 </div>
 
             </div>
-<!--project end-->
+            <!--project end-->
 
+            <!--            skills start-->
+            <div id="skills" class="skills">
+                <h1 class="mt-4">Skills</h1>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Name</label>
+                                    <input id="skill-name" class="form-control" placeholder="Skill Name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Level</label>
+                                    <select class="form-control" id="skill-level">
+                                        <option>Intermediate</option>
+                                        <option>Beginner</option>
+                                        <option>Pro</option>
+                                        <option>Expert</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill %</label>
+                                    <input id="skill-percentage" class="form-control" placeholder="Skill Percentage eg.60%">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Description</label>
+                                    <textarea id="skill-description" class="form-control" placeholder="Skill Description">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button id="save-skill" class="btn btn-sm btn-success">Save</button>
+
+                    </div>
+                </div>
+
+            </div>
+            <!--skills end-->
         </div>
     </div>
     <!-- /#page-content-wrapper -->
