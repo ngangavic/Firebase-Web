@@ -1,16 +1,23 @@
-//check if session exist
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        if (user.emailVerified){
-            window.location.replace("dashboard.html");
+
+if (getUrlParam("code","empty")==="signin"){
+    displayUI()
+}else if (getUrlParam("code","empty")==="signup"){
+    displayUI()
+}else{
+    //check if session exist
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            if (user.emailVerified){
+                window.location.replace("dashboard.html");
+            }else{
+                firebase.auth().currentUser.sendEmailVerification()
+                alert("Verify your email. Link sent to your email inbox.")
+            }
         }else{
-            firebase.auth().currentUser.sendEmailVerification()
-            alert("Verify your email. Link sent to your email inbox.")
+            window.location.replace("p/");
         }
-    }else{
-        window.location.replace("p/");
-    }
-});
+    });
+}
 
 // FirebaseUI config.
 function displayUI() {
@@ -38,4 +45,20 @@ function displayUI() {
     var ui = new firebaseui.auth.AuthUI(firebase.auth());
 // The start method will wait until the DOM is loaded.
     ui.start('#firebaseui-auth-container', uiConfig);
+}
+
+function getUrlParam(parameter, defaultvalue){
+    var urlparameter = defaultvalue;
+    if(window.location.href.indexOf(parameter) > -1){
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
 }
