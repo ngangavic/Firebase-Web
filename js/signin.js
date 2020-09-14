@@ -1,4 +1,4 @@
-
+//read url params
 if (getUrlParam("code","empty")==="signin"){
     displayUI()
 }else if (getUrlParam("code","empty")==="signup"){
