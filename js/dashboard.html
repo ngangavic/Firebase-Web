@@ -42,7 +42,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://bit.do/ngangavictor">Developer</a>
+                        <a class="nav-link" data-toggle="modal" href="#myModal" >Developer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="logout()">Logout</a>
@@ -280,6 +280,30 @@
 
 </div>
 <!-- /#wrapper -->
+
+<!-- developer modal start -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">About Developer</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p><b>Developed by: </b> Ng'ang'a Victor</p>
+                <p><b>About: </b> Android dev, Back-end dev and open source enthusiast| Love deadlines| Have an -𝗮𝗳𝘁𝗶́</p>
+                <p><b>Github: </b><a href="https://github.com/ngangavic"> ngangavic</a></p>
+                <p><b>Twitter: </b><a href="https://twitter.com/ngangavictor"> @ngangavictor</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--developer modal end-->
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
