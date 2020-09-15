@@ -5,3 +5,11 @@ function logout() {
         alert("Error"+error)
     });
 }
+
+function startUp() {
+// $("#details").css('display','none')
+$("#education").css('display','none')
+$("#project").css('display','none')
+$("#skills").css('display','none')
+$("#testimonials").css('display','none')
+}
