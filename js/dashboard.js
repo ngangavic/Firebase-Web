@@ -3,6 +3,27 @@ firebase.auth().onAuthStateChanged( user => {
     if (user) { this.userId = user.uid }
 });
 
+function saveSkillsData() {
+    const name = document.getElementById("skill-name").value;
+    const percentage = document.getElementById("skill-percentage").value;
+    const description = document.getElementById("skill-description").value;
+    const level = $('#skill-level').val();
+
+    alert("Skills: \n"+name+"\n"+percentage+"\n"+description+"\n"+level)
+
+    var newSkillsKey = firebase.database().ref('/porfolio/' + userId +'/skills').push().key;
+    firebase.database().ref('/porfolio/' + userId +'/skills/'+newSkillsKey).set({
+        name:name,
+        percentage:percentage,
+        description:description,
+        level:level
+    }).then(function (result) {
+        alert("Saved")
+        console.log("WRITE RESULT:"+result)
+    })
+
+}
+
 function saveTestimonialData() {
     const name = document.getElementById("testimonial-name").value;
     const company = document.getElementById("testimonial-company").value;
