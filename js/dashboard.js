@@ -2,8 +2,38 @@
 firebase.auth().onAuthStateChanged(user => {
     if (user) {
         this.userId = user.uid
+        getDetailsData()
+        getEducationData()
     }
 });
+
+function getEducationData() {
+    const database = firebase.database();
+    var getEducation = database.ref('/porfolio/' + userId + '/education')
+    getEducation.once('value', function (snapshot) {
+
+        var displayEducation = '';
+        snapshot.forEach(function (childSnapshot) {
+displayEducation+='<div class="card-body">\n' +
+    '                        <div class="row">\n' +
+    '                        <div class="col">\n' +
+    '                            <h5 class="mt-4"><b>'+childSnapshot.val().course+'</b></h5>\n' +
+    '                        </div>\n' +
+    '                            <div class="col">\n' +
+    '                                <h6 class="mt-4"><b>'+childSnapshot.val().school+'</b> '+childSnapshot.val().dates+'</h6>\n' +
+    '                        </div>\n' +
+    '                            <div class="col">\n' +
+    '                                <div class="btn btn-group btn-group-sm">\n' +
+    '                                <button class="btn btn-sm btn-warning">Edit</button>\n' +
+    '                                <button class="btn btn-sm btn-danger">Delete</button>\n' +
+    '                                </div>\n' +
+    '                            </div>\n' +
+    '                        </div>\n' +
+    '                    </div>';
+        })
+        $("#education-display").append(displayEducation);
+    })
+}
 
 function getDetailsData() {
     const database = firebase.database();
@@ -145,7 +175,6 @@ function logout() {
 }
 
 function startUp() {
-    getDetailsData()
 // $("#details").css('display','none')
     $("#education").css('display', 'none')
     $("#project").css('display', 'none')
