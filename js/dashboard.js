@@ -5,8 +5,37 @@ firebase.auth().onAuthStateChanged(user => {
         getDetailsData()
         getEducationData()
         getSkillData()
+        getTestimonyData()
     }
 });
+
+function getTestimonyData() {
+    const database = firebase.database();
+    var getSkill = database.ref('/porfolio/' + userId + '/testimonial')
+    getSkill.once('value', function (snapshot) {
+
+        var testimonySkill = '';
+        snapshot.forEach(function (childSnapshot) {
+            testimonySkill+='<div class="card-body">\n' +
+                '                            <div class="row">\n' +
+                '                                <div class="col">\n' +
+                '                                    <h5 class="mt-4"><b>'+childSnapshot.val().name + '</b></br>'+childSnapshot.val().company + '</h5>\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <p>'+childSnapshot.val().text + '</p>\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <div class="btn-group btn-group-sm">\n' +
+                '                                        <button class="btn btn-sm btn-warning">Edit</button>\n' +
+                '                                        <button class="btn btn-sm btn-danger">Delete</button>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>';
+        })
+        $("#testimonials-display").append(testimonySkill);
+    })
+}
 
 function getSkillData() {
     const database = firebase.database();
