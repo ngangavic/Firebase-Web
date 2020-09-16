@@ -4,8 +4,41 @@ firebase.auth().onAuthStateChanged(user => {
         this.userId = user.uid
         getDetailsData()
         getEducationData()
+        getSkillData()
     }
 });
+
+function getSkillData() {
+    const database = firebase.database();
+    var getSkill = database.ref('/porfolio/' + userId + '/skills')
+    getSkill.once('value', function (snapshot) {
+
+        var displaySkill = '';
+        snapshot.forEach(function (childSnapshot) {
+            displaySkill+='<div class="card-body">\n' +
+                '                            <div class="row">\n' +
+                '                                <div class="col">\n' +
+                '                                    <h5 class="mt-4"><b>'+childSnapshot.val().name + '</b><span\n' +
+                '                                            class="badge badge-secondary">'+childSnapshot.val().level+'</span></h5>\n' +
+                '                                    <div class="progress">\n' +
+                '                                        <div class="progress-bar" style="width:70%">'+childSnapshot.val().percentage+'</div>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <h5 class="mt-4">'+childSnapshot.val().description+'</h5>\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <div class="btn-group btn-group-sm">\n' +
+                '                                        <button class="btn btn-sm btn-warning">Edit</button>\n' +
+                '                                        <button class="btn btn-sm btn-danger">Delete</button>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>';
+        })
+        $("#skill-display").append(displaySkill);
+    })
+}
 
 function getEducationData() {
     const database = firebase.database();
