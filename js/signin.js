@@ -1,19 +1,19 @@
 //read url params
-if (getUrlParam("code","empty")==="signin"){
+if (getUrlParam("code", "empty") === "signin") {
     displayUI()
-}else if (getUrlParam("code","empty")==="signup"){
+} else if (getUrlParam("code", "empty") === "signup") {
     displayUI()
-}else{
+} else {
     //check if session exist
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-            if (user.emailVerified){
+            if (user.emailVerified) {
                 window.location.replace("dashboard.html");
-            }else{
+            } else {
                 firebase.auth().currentUser.sendEmailVerification()
                 alert("Verify your email. Link sent to your email inbox.")
             }
-        }else{
+        } else {
             window.location.replace("p/");
         }
     });
@@ -47,9 +47,9 @@ function displayUI() {
     ui.start('#firebaseui-auth-container', uiConfig);
 }
 
-function getUrlParam(parameter, defaultvalue){
+function getUrlParam(parameter, defaultvalue) {
     var urlparameter = defaultvalue;
-    if(window.location.href.indexOf(parameter) > -1){
+    if (window.location.href.indexOf(parameter) > -1) {
         urlparameter = getUrlVars()[parameter];
     }
     return urlparameter;
@@ -57,7 +57,7 @@ function getUrlParam(parameter, defaultvalue){
 
 function getUrlVars() {
     var vars = {};
-    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
         vars[key] = value;
     });
     return vars;

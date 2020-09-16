@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     <title>Dashboard</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
     <link href="simple-sidebar.css" rel="stylesheet">
 
 </head>
@@ -19,12 +19,16 @@
     <div class="bg-light border-right" id="sidebar-wrapper">
         <div class="sidebar-heading">My Portfolio</div>
         <div class="list-group list-group-flush">
-            <a href="#details" class="list-group-item list-group-item-action bg-light" onclick="showDetails()" >My Details</a>
-            <a href="#education" class="list-group-item list-group-item-action bg-light" onclick="showEducation()">Education</a>
-            <a href="#project" class="list-group-item list-group-item-action bg-light" onclick="showProjects()">Projects</a>
-            <a href="#skills" class="list-group-item list-group-item-action bg-light" onclick="showSkills()">Skills</a>
-            <a href="#testimonials" class="list-group-item list-group-item-action bg-light" onclick="showTestimonials()">Testimonials</a>
-            <a href="p/" class="list-group-item list-group-item-action bg-light" onclick="showTestimonials()">View Site</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#details" onclick="showDetails()">My
+                Details</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#education" onclick="showEducation()">Education</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#project"
+               onclick="showProjects()">Projects</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#skills" onclick="showSkills()">Skills</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#testimonials"
+               onclick="showTestimonials()">Testimonials</a>
+            <a class="list-group-item list-group-item-action bg-light" href="p/" onclick="showTestimonials()">View
+                Site</a>
         </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -35,15 +39,15 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
             <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                    data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" href="#myModal" >Developer</a>
+                        <a class="nav-link" data-toggle="modal" href="#myModal">Developer</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" onclick="logout()">Logout</a>
@@ -64,13 +68,13 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Name</label>
-                                        <input id="username" placeholder="Name" class="form-control">
+                                        <input class="form-control" id="username" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Email</label>
-                                        <input id="email" placeholder="Email" class="form-control">
+                                        <input class="form-control" id="email" placeholder="Email">
                                     </div>
                                 </div>
                             </div>
@@ -78,13 +82,13 @@
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Phone</label>
-                                        <input id="phone" placeholder="Phone" class="form-control">
+                                        <input class="form-control" id="phone" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
                                         <label>Job</label>
-                                        <input id="job" placeholder="Job" class="form-control">
+                                        <input class="form-control" id="job" placeholder="Job">
                                     </div>
                                 </div>
                             </div>
@@ -103,7 +107,7 @@
 
 
             <!--            education start-->
-            <div id="education" class="education">
+            <div class="education" id="education">
                 <h1 class="mt-4">Education</h1>
 
                 <div class="card">
@@ -111,21 +115,23 @@
 
                         <div class="form-group">
                             <label>Course Title</label>
-                            <input id="course" placeholder="Course Title" class="form-control">
+                            <input class="form-control" id="course" placeholder="Course Title">
                         </div>
 
                         <div class="form-group">
                             <label>School Name</label>
-                            <input id="school" placeholder="School" class="form-control">
+                            <input class="form-control" id="school" placeholder="School">
                         </div>
 
                         <div class="form-group">
                             <label>Dates</label>
-                            <input id="dates" placeholder="Eg. 2010-2020" class="form-control">
+                            <input class="form-control" id="dates" placeholder="Eg. 2010-2020">
                         </div>
 
                         <div class="form-group">
-                            <button id="save-education" onclick="saveEducationData()" class="btn btn-sm btn-success">Save</button>
+                            <button class="btn btn-sm btn-success" id="save-education" onclick="saveEducationData()">
+                                Save
+                            </button>
                         </div>
 
                     </div>
@@ -135,7 +141,7 @@
             <!--education end-->
 
             <!--            project start-->
-            <div id="project" class="project">
+            <div class="project" id="project">
                 <h1 class="mt-4">Project</h1>
 
                 <div class="card">
@@ -145,13 +151,13 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Project Name</label>
-                                    <input id="project-name" placeholder="Project Name" class="form-control">
+                                    <input class="form-control" id="project-name" placeholder="Project Name">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Link to project</label>
-                                    <input id="project-link" placeholder="Link to project" class="form-control">
+                                    <input class="form-control" id="project-link" placeholder="Link to project">
                                 </div>
                             </div>
                         </div>
@@ -160,15 +166,15 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Project Image</label>
-                                    <input id="project-image" type="file" placeholder="Project Image"
-                                           class="form-control">
+                                    <input class="form-control" id="project-image" placeholder="Project Image"
+                                           type="file">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Project Image View</label>
                                     <div id="view-image">
-                                        <img src="" alt="image" width="100" height="100">
+                                        <img alt="image" height="100" src="" width="100">
                                     </div>
                                 </div>
                             </div>
@@ -180,7 +186,8 @@
                                 </textarea>
                         </div>
                         <div class="form-group">
-                            <button id="save-project" onclick="saveProjectData()" class="btn btn-sm btn-success">Save</button>
+                            <button class="btn btn-sm btn-success" id="save-project" onclick="saveProjectData()">Save
+                            </button>
                         </div>
 
                     </div>
@@ -190,7 +197,7 @@
             <!--project end-->
 
             <!--            skills start-->
-            <div id="skills" class="skills">
+            <div class="skills" id="skills">
                 <h1 class="mt-4">Skills</h1>
 
                 <div class="card">
@@ -200,7 +207,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Skill Name</label>
-                                    <input id="skill-name" class="form-control" placeholder="Skill Name">
+                                    <input class="form-control" id="skill-name" placeholder="Skill Name">
                                 </div>
                             </div>
                             <div class="col">
@@ -220,7 +227,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Skill %</label>
-                                    <input id="skill-percentage" class="form-control"
+                                    <input class="form-control" id="skill-percentage"
                                            placeholder="Skill Percentage eg.60%">
                                 </div>
                             </div>
@@ -234,7 +241,7 @@
                             </div>
                         </div>
 
-                        <button id="save-skill" onclick="saveSkillsData()" class="btn btn-sm btn-success">Save</button>
+                        <button class="btn btn-sm btn-success" id="save-skill" onclick="saveSkillsData()">Save</button>
 
                     </div>
                 </div>
@@ -243,7 +250,7 @@
             <!--skills end-->
 
             <!--            Testimonials start-->
-            <div id="testimonials" class="testimonials">
+            <div class="testimonials" id="testimonials">
                 <h1 class="mt-4">Testimonials</h1>
 
                 <div class="card">
@@ -252,21 +259,23 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label>Person Name</label>
-                                    <input id="testimonial-name" placeholder="Person Name" class="form-control">
+                                    <input class="form-control" id="testimonial-name" placeholder="Person Name">
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label>Company</label>
-                                    <input id="testimonial-company" placeholder="Company" class="form-control">
+                                    <input class="form-control" id="testimonial-company" placeholder="Company">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea id="testimony-text" class="form-control" placeholder="Testimony"></textarea>
+                            <textarea class="form-control" id="testimony-text" placeholder="Testimony"></textarea>
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-sm btn-success" onclick="saveTestimonialData()" id="save-testimony">Save</button>
+                            <button class="btn btn-sm btn-success" id="save-testimony" onclick="saveTestimonialData()">
+                                Save
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -289,13 +298,14 @@
             <!-- Modal Header -->
             <div class="modal-header">
                 <h4 class="modal-title">About Developer</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
                 <p><b>Developed by: </b> Ng'ang'a Victor</p>
-                <p><b>About: </b> Android dev, Back-end dev and open source enthusiast| Love deadlines| Have an -𝗮𝗳𝘁𝗶́</p>
+                <p><b>About: </b> Android dev, Back-end dev and open source enthusiast| Love deadlines| Have an
+                    -𝗮𝗳𝘁𝗶́</p>
                 <p><b>Github: </b><a href="https://github.com/ngangavic"> ngangavic</a></p>
                 <p><b>Twitter: </b><a href="https://twitter.com/ngangavictor"> @ngangavictor</a></p>
             </div>
@@ -321,15 +331,15 @@
 <script defer src="dashboard.js"></script>
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+<script crossorigin="anonymous"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
 <!-- Menu Toggle Script -->
