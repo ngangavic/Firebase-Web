@@ -5,6 +5,21 @@ firebase.auth().onAuthStateChanged(user => {
     }
 });
 
+function getDetailsData() {
+    const database = firebase.database();
+    var getProperty = database.ref('/porfolio/' + userId + '/my-details')
+    getProperty.once('value').then(function (snapshot) {
+            console.log("DATA:"+snapshot)
+            document.getElementById("username").value=snapshot.val().username;
+            document.getElementById("email").value=snapshot.val().email;
+            document.getElementById("phone").value=snapshot.val().phone;
+            document.getElementById("job").value=snapshot.val().job;
+            document.getElementById("about-user").value=snapshot.val().about;
+        }).catch((error) => {
+        alert("Error: " + error.code)
+    })
+}
+
 function saveProjectData() {
     const ref = firebase.storage().ref("/portfolio/" + userId + "/projects/");
 
@@ -130,6 +145,7 @@ function logout() {
 }
 
 function startUp() {
+    getDetailsData()
 // $("#details").css('display','none')
     $("#education").css('display', 'none')
     $("#project").css('display', 'none')
