@@ -3,6 +3,39 @@ firebase.auth().onAuthStateChanged( user => {
     if (user) { this.userId = user.uid }
 });
 
+function saveProjectData() {
+    const ref = firebase.storage().ref("/portfolio/"+userId+"/projects/");
+
+    var newProjectKey = firebase.database().ref('/porfolio/' + userId +'/projects').push().key;
+
+    const image = $('#project-image').get(0).files[0];
+    const name = document.getElementById("project-name").value;
+    const link = document.getElementById("project-link").value;
+    const about = document.getElementById("about-project").value;
+
+    const imageName = (+new Date()) + '-' + image.name;
+
+    const task = ref.child(imageName).put(image);
+    task.then(snapshot => snapshot.ref.getDownloadURL())
+        .then((url) => {
+
+            firebase.database().ref('/porfolio/' + userId +'/projects/'+newProjectKey).set({
+                name:name,
+                link:link,
+                about:about,
+                imageUrl:url
+            }).then(function (result) {
+                alert("Saved")
+                console.log("WRITE RESULT:"+result)
+            })
+
+            console.log(url);
+        })
+        .catch((error)=>{
+alert("Error: "+error.code)
+    })
+}
+
 function saveSkillsData() {
     const name = document.getElementById("skill-name").value;
     const percentage = document.getElementById("skill-percentage").value;
