@@ -6,8 +6,39 @@ firebase.auth().onAuthStateChanged(user => {
         getEducationData()
         getSkillData()
         getTestimonyData()
+        getProjectsData()
     }
 });
+
+function getProjectsData() {
+    const database = firebase.database();
+    var getProject = database.ref('/porfolio/' + userId + '/projects')
+    getProject.once('value', function (snapshot) {
+
+        var project = '';
+        snapshot.forEach(function (childSnapshot) {
+            project+='<div class="card-body">\n' +
+                '                            <div class="row">\n' +
+                '                                <div class="col">\n' +
+                '                                    <h6>'+childSnapshot.val().name + '</h6>\n' +
+                '                                    <h6><a href="'+childSnapshot.val().link + '">Go to Project</a></h6>\n' +
+                '                                    <h6>'+childSnapshot.val().about + '</h6>\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <img src="'+childSnapshot.val().imageUrl + '" class="img-fluid" alt="project image">\n' +
+                '                                </div>\n' +
+                '                                <div class="col">\n' +
+                '                                    <div class="btn-group btn-group-sm">\n' +
+                '                                        <button class="btn btn-sm btn-warning">Edit</button>\n' +
+                '                                        <button class="btn btn-sm btn-danger">Delete</button>\n' +
+                '                                    </div>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>';
+        })
+        $("#display-project").append(project);
+    })
+}
 
 function getTestimonyData() {
     const database = firebase.database();
