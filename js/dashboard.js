@@ -17,15 +17,15 @@ function getProjectsData() {
 
         var project = '';
         snapshot.forEach(function (childSnapshot) {
-            project+='<div class="card-body">\n' +
+            project += '<div class="card-body">\n' +
                 '                            <div class="row">\n' +
                 '                                <div class="col">\n' +
-                '                                    <h6>'+childSnapshot.val().name + '</h6>\n' +
-                '                                    <h6><a href="'+childSnapshot.val().link + '">Go to Project</a></h6>\n' +
-                '                                    <h6>'+childSnapshot.val().about + '</h6>\n' +
+                '                                    <h6>' + childSnapshot.val().name + '</h6>\n' +
+                '                                    <h6><a href="' + childSnapshot.val().link + '">Go to Project</a></h6>\n' +
+                '                                    <h6>' + childSnapshot.val().about + '</h6>\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
-                '                                    <img src="'+childSnapshot.val().imageUrl + '" class="img-fluid" alt="project image">\n' +
+                '                                    <img src="' + childSnapshot.val().imageUrl + '" class="img-fluid" alt="project image">\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
                 '                                    <div class="btn-group btn-group-sm">\n' +
@@ -47,13 +47,13 @@ function getTestimonyData() {
 
         var testimonySkill = '';
         snapshot.forEach(function (childSnapshot) {
-            testimonySkill+='<div class="card-body">\n' +
+            testimonySkill += '<div class="card-body">\n' +
                 '                            <div class="row">\n' +
                 '                                <div class="col">\n' +
-                '                                    <h5 class="mt-4"><b>'+childSnapshot.val().name + '</b></br>'+childSnapshot.val().company + '</h5>\n' +
+                '                                    <h5 class="mt-4"><b>' + childSnapshot.val().name + '</b></br>' + childSnapshot.val().company + '</h5>\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
-                '                                    <p>'+childSnapshot.val().text + '</p>\n' +
+                '                                    <p>' + childSnapshot.val().text + '</p>\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
                 '                                    <div class="btn-group btn-group-sm">\n' +
@@ -75,17 +75,17 @@ function getSkillData() {
 
         var displaySkill = '';
         snapshot.forEach(function (childSnapshot) {
-            displaySkill+='<div class="card-body">\n' +
+            displaySkill += '<div class="card-body">\n' +
                 '                            <div class="row">\n' +
                 '                                <div class="col">\n' +
-                '                                    <h5 class="mt-4"><b>'+childSnapshot.val().name + '</b><span\n' +
-                '                                            class="badge badge-secondary">'+childSnapshot.val().level+'</span></h5>\n' +
+                '                                    <h5 class="mt-4"><b>' + childSnapshot.val().name + '</b><span\n' +
+                '                                            class="badge badge-secondary">' + childSnapshot.val().level + '</span></h5>\n' +
                 '                                    <div class="progress">\n' +
-                '                                        <div class="progress-bar" style="width:70%">'+childSnapshot.val().percentage+'</div>\n' +
+                '                                        <div class="progress-bar" style="width:70%">' + childSnapshot.val().percentage + '</div>\n' +
                 '                                    </div>\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
-                '                                    <h5 class="mt-4">'+childSnapshot.val().description+'</h5>\n' +
+                '                                    <h5 class="mt-4">' + childSnapshot.val().description + '</h5>\n' +
                 '                                </div>\n' +
                 '                                <div class="col">\n' +
                 '                                    <div class="btn-group btn-group-sm">\n' +
@@ -107,22 +107,22 @@ function getEducationData() {
 
         var displayEducation = '';
         snapshot.forEach(function (childSnapshot) {
-displayEducation+='<div class="card-body">\n' +
-    '                        <div class="row">\n' +
-    '                        <div class="col">\n' +
-    '                            <h5 class="mt-4"><b>'+childSnapshot.val().course+'</b></h5>\n' +
-    '                        </div>\n' +
-    '                            <div class="col">\n' +
-    '                                <h6 class="mt-4"><b>'+childSnapshot.val().school+'</b> '+childSnapshot.val().dates+'</h6>\n' +
-    '                        </div>\n' +
-    '                            <div class="col">\n' +
-    '                                <div class="btn btn-group btn-group-sm">\n' +
-    '                                <button class="btn btn-sm btn-warning">Edit</button>\n' +
-    '                                <button class="btn btn-sm btn-danger">Delete</button>\n' +
-    '                                </div>\n' +
-    '                            </div>\n' +
-    '                        </div>\n' +
-    '                    </div>';
+            displayEducation += '<div class="card-body">\n' +
+                '                        <div class="row">\n' +
+                '                        <div class="col">\n' +
+                '                            <h5 class="mt-4"><b>' + childSnapshot.val().course + '</b></h5>\n' +
+                '                        </div>\n' +
+                '                            <div class="col">\n' +
+                '                                <h6 class="mt-4"><b>' + childSnapshot.val().school + '</b> ' + childSnapshot.val().dates + '</h6>\n' +
+                '                        </div>\n' +
+                '                            <div class="col">\n' +
+                '                                <div class="btn btn-group btn-group-sm">\n' +
+                '                                <button class="btn btn-sm btn-warning">Edit</button>\n' +
+                '                                <button class="btn btn-sm btn-danger">Delete</button>\n' +
+                '                                </div>\n' +
+                '                            </div>\n' +
+                '                        </div>\n' +
+                '                    </div>';
         })
         $("#education-display").append(displayEducation);
     })
@@ -132,13 +132,13 @@ function getDetailsData() {
     const database = firebase.database();
     var getProperty = database.ref('/porfolio/' + userId + '/my-details')
     getProperty.once('value').then(function (snapshot) {
-            console.log("DATA:"+snapshot)
-            document.getElementById("username").value=snapshot.val().username;
-            document.getElementById("email").value=snapshot.val().email;
-            document.getElementById("phone").value=snapshot.val().phone;
-            document.getElementById("job").value=snapshot.val().job;
-            document.getElementById("about-user").value=snapshot.val().about;
-        }).catch((error) => {
+        console.log("DATA:" + snapshot)
+        document.getElementById("username").value = snapshot.val().username;
+        document.getElementById("email").value = snapshot.val().email;
+        document.getElementById("phone").value = snapshot.val().phone;
+        document.getElementById("job").value = snapshot.val().job;
+        document.getElementById("about-user").value = snapshot.val().about;
+    }).catch((error) => {
         alert("Error: " + error.code)
     })
 }
