@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 function getProjectsData() {
     const database = firebase.database();
-    var getProject = database.ref('/porfolio/' + userId + '/projects')
+    var getProject = database.ref('/portfolio/' + userId + '/projects')
     getProject.once('value', function (snapshot) {
 
         var project = '';
@@ -42,7 +42,7 @@ function getProjectsData() {
 
 function getTestimonyData() {
     const database = firebase.database();
-    var getSkill = database.ref('/porfolio/' + userId + '/testimonial')
+    var getSkill = database.ref('/portfolio/' + userId + '/testimonial')
     getSkill.once('value', function (snapshot) {
 
         var testimonySkill = '';
@@ -70,7 +70,7 @@ function getTestimonyData() {
 
 function getSkillData() {
     const database = firebase.database();
-    var getSkill = database.ref('/porfolio/' + userId + '/skills')
+    var getSkill = database.ref('/portfolio/' + userId + '/skills')
     getSkill.once('value', function (snapshot) {
 
         var displaySkill = '';
@@ -102,7 +102,7 @@ function getSkillData() {
 
 function getEducationData() {
     const database = firebase.database();
-    var getEducation = database.ref('/porfolio/' + userId + '/education')
+    var getEducation = database.ref('/portfolio/' + userId + '/education')
     getEducation.once('value', function (snapshot) {
 
         var displayEducation = '';
@@ -130,7 +130,7 @@ function getEducationData() {
 
 function getDetailsData() {
     const database = firebase.database();
-    var getProperty = database.ref('/porfolio/' + userId + '/my-details')
+    var getProperty = database.ref('/portfolio/' + userId + '/my-details')
     getProperty.once('value').then(function (snapshot) {
         console.log("DATA:" + snapshot)
         document.getElementById("username").value = snapshot.val().username;
@@ -143,10 +143,34 @@ function getDetailsData() {
     })
 }
 
+function saveExperienceData() {
+    const ref = firebase.storage().ref("/portfolio/" + userId + "/experience/");
+
+    var newExperienceKey = firebase.database().ref('/portfolio/' + userId + '/experience').push().key;
+
+    const title = document.getElementById("work-title").value;
+    const company = document.getElementById("work-company").value;
+    const start = document.getElementById("work-start").value;
+    const end = document.getElementById("work-end").value;
+    const description = document.getElementById("work-description").value;
+
+    firebase.database().ref('/portfolio/' + userId + '/experience/' + newExperienceKey).set({
+        title: title,
+        company: company,
+        description: description,
+        start: start,
+        end:end
+    }).then(function (result) {
+        alert("Saved")
+        console.log("WRITE RESULT:" + result)
+    })
+
+}
+
 function saveProjectData() {
     const ref = firebase.storage().ref("/portfolio/" + userId + "/projects/");
 
-    var newProjectKey = firebase.database().ref('/porfolio/' + userId + '/projects').push().key;
+    var newProjectKey = firebase.database().ref('/portfolio/' + userId + '/projects').push().key;
 
     const image = $('#project-image').get(0).files[0];
     const name = document.getElementById("project-name").value;
@@ -159,7 +183,7 @@ function saveProjectData() {
     task.then(snapshot => snapshot.ref.getDownloadURL())
         .then((url) => {
 
-            firebase.database().ref('/porfolio/' + userId + '/projects/' + newProjectKey).set({
+            firebase.database().ref('/portfolio/' + userId + '/projects/' + newProjectKey).set({
                 name: name,
                 link: link,
                 about: about,
@@ -184,8 +208,8 @@ function saveSkillsData() {
 
     alert("Skills: \n" + name + "\n" + percentage + "\n" + description + "\n" + level)
 
-    var newSkillsKey = firebase.database().ref('/porfolio/' + userId + '/skills').push().key;
-    firebase.database().ref('/porfolio/' + userId + '/skills/' + newSkillsKey).set({
+    var newSkillsKey = firebase.database().ref('/portfolio/' + userId + '/skills').push().key;
+    firebase.database().ref('/portfolio/' + userId + '/skills/' + newSkillsKey).set({
         name: name,
         percentage: percentage,
         description: description,
@@ -204,8 +228,8 @@ function saveTestimonialData() {
 
     alert("Testimonial data: \n" + name + "\n" + company + "\n" + text)
 
-    var newTestKey = firebase.database().ref('/porfolio/' + userId + '/testimonial').push().key;
-    firebase.database().ref('/porfolio/' + userId + '/testimonial/' + newTestKey).set({
+    var newTestKey = firebase.database().ref('/portfolio/' + userId + '/testimonial').push().key;
+    firebase.database().ref('/portfolio/' + userId + '/testimonial/' + newTestKey).set({
         name: name,
         company: company,
         text: text
@@ -225,8 +249,8 @@ function saveEducationData() {
 
     // const uid=firebase.auth().currentUser.uid
     try {
-        var newEduKey = firebase.database().ref('/porfolio/' + userId + '/education').push().key;
-        firebase.database().ref('/porfolio/' + userId + '/education/' + newEduKey).set({
+        var newEduKey = firebase.database().ref('/portfolio/' + userId + '/education').push().key;
+        firebase.database().ref('/portfolio/' + userId + '/education/' + newEduKey).set({
             course: course,
             school: school,
             dates: dates
@@ -247,7 +271,7 @@ function saveDetailsData() {
     const about = document.getElementById("about-user").value;
 
     alert("User data:\n" + username + "\n" + email + "\n" + phone + "\n" + job + "\n" + about)
-    firebase.database().ref('/porfolio/' + userId + '/my-details').set({
+    firebase.database().ref('/portfolio/' + userId + '/my-details').set({
         username: username,
         email: email,
         phone: phone,
