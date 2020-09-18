@@ -26,6 +26,7 @@
             <a class="list-group-item list-group-item-action bg-light" href="#project"
                onclick="showProjects()">Projects</a>
             <a class="list-group-item list-group-item-action bg-light" href="#skills" onclick="showSkills()">Skills</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#experience" onclick="showExperience()">Experience</a>
             <a class="list-group-item list-group-item-action bg-light" href="#testimonials"
                onclick="showTestimonials()">Testimonials</a>
             <a class="list-group-item list-group-item-action bg-light" href="p/" onclick="showTestimonials()">View
@@ -316,6 +317,63 @@
 
             </div>
             <!--            Testimonials end-->
+
+            <!--            Experience start-->
+            <div class="experience" id="experience">
+                <h1 class="mt-4">Experience</h1>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Work Title</label>
+                                    <input class="form-control" id="work-title" placeholder="Work Title">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input class="form-control" id="work-company" placeholder="Company">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    <input class="form-control" id="work-start" placeholder="Start Date">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input class="form-control" id="work-end" placeholder="End Date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" id="work-description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-experience" onclick="">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="testimonials-display">
+                    <div class="card" id="testimonials-display">
+                        <!--                    display data-->
+                    </div>
+                </div>
+
+            </div>
+            <!--            Experience end-->
 
         </div>
     </div>

@@ -314,3 +314,12 @@ function showTestimonials() {
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'inline')
 }
+
+function showExperience() {
+    $("#details").css('display', 'none')
+    $("#education").css('display', 'none')
+    $("#project").css('display', 'none')
+    $("#skills").css('display', 'none')
+    $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'inline')
+}
