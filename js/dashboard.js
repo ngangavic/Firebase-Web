@@ -160,7 +160,7 @@ function saveExperienceData() {
         description: description,
         start: start,
         end:end
-    }).then(function (result) {
+     }).then(function (result) {
         alert("Saved")
         console.log("WRITE RESULT:" + result)
     })
