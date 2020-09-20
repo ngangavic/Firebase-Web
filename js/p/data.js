@@ -4,9 +4,34 @@ firebase.auth().onAuthStateChanged(user => {
         getDetailsData()
         getProjectsData()
         getExperienceData()
+        getSkillsData()
     }
 
 })
+
+function getSkillsData() {
+    const database = firebase.database();
+    var getSkills = database.ref("/porfolio/" + userId + "/skills/")
+    getSkills.once('value', function (snapshot) {
+
+        var skills = '';
+        snapshot.forEach(function (childSnapshot) {
+            skills+='<div class="item">\n' +
+                '                                <h3 class="level-title">' + childSnapshot.val().name + '<span class="level-label"\n' +
+                '                                                                                    data-animation="true"\n' +
+                '                                                                                    data-placement="left"\n' +
+                '                                                                                    data-toggle="tooltip"\n' +
+                '                                                                                    title="' + childSnapshot.val().description + '"><i\n' +
+                '                                        class="fas fa-info-circle"></i>' + childSnapshot.val().level + '</span></h3>\n' +
+                '                                <div class="level-bar">\n' +
+                '                                    <div class="level-bar-inner" data-level="' + childSnapshot.val().percentage + '%">\n' +
+                '                                    </div>\n' +
+                '                                </div><!--//level-bar-->\n' +
+                '                            </div>'
+        })
+        $("#skillset").append(skills);
+    })
+}
 
 function getExperienceData() {
     const database = firebase.database();
