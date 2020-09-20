@@ -297,6 +297,7 @@ function startUp() {
     $("#project").css('display', 'none')
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'none')
 }
 
 function showDetails() {
@@ -305,6 +306,7 @@ function showDetails() {
     $("#project").css('display', 'none')
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'none')
 }
 
 function showEducation() {
@@ -313,6 +315,7 @@ function showEducation() {
     $("#project").css('display', 'none')
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'none')
 }
 
 function showProjects() {
@@ -321,6 +324,7 @@ function showProjects() {
     $("#project").css('display', 'inline')
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'none')
 }
 
 function showSkills() {
@@ -329,6 +333,7 @@ function showSkills() {
     $("#project").css('display', 'none')
     $("#skills").css('display', 'inline')
     $("#testimonials").css('display', 'none')
+    $("#experience").css('display', 'none')
 }
 
 function showTestimonials() {
@@ -337,6 +342,7 @@ function showTestimonials() {
     $("#project").css('display', 'none')
     $("#skills").css('display', 'none')
     $("#testimonials").css('display', 'inline')
+    $("#experience").css('display', 'none')
 }
 
 function showExperience() {
