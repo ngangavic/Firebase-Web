@@ -353,3 +353,7 @@ function showExperience() {
     $("#testimonials").css('display', 'none')
     $("#experience").css('display', 'inline')
 }
+
+function openPortfolio(){
+    window.location.replace("p?code="+userId);
+}
