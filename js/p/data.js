@@ -3,9 +3,27 @@ firebase.auth().onAuthStateChanged(user => {
         this.userId = user.uid
         getDetailsData()
         getProjectsData()
+        getExperienceData()
     }
 
 })
+
+function getExperienceData() {
+    const database = firebase.database();
+    var getExperience = database.ref("/portfolio/" + userId + "/experience/")
+    getExperience.once('value', function (snapshot) {
+
+        var experience = '';
+        snapshot.forEach(function (childSnapshot) {
+            experience+='<div class="item">\n' +
+                '                            <h3 class="title">' + childSnapshot.val().title + ' - <span class="place"><a\n' +
+                '                                    href="#">' + childSnapshot.val().company + '</a></span> <span class="year">(' + childSnapshot.val().start + ' - ' + childSnapshot.val().end + ')</span></h3>\n' +
+                '                            <p>' + childSnapshot.val().description + '</p>\n' +
+                '                        </div>'
+        })
+        $("#experience-content").append(experience);
+    })
+}
 
 function getDetailsData() {
     const database = firebase.database();
