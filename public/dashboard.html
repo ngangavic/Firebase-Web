@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+
+    <title>Dashboard</title>
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" rel="stylesheet">
+    <link href="simple-sidebar.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+</head>
+<body onload="startUp()">
+
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">My Portfolio</div>
+        <div class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action bg-light" href="#details" onclick="showDetails()">My
+                Details</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#education" onclick="showEducation()">Education</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#project"
+               onclick="showProjects()">Projects</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#skills" onclick="showSkills()">Skills</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#experience" onclick="showExperience()">Experience</a>
+            <a class="list-group-item list-group-item-action bg-light" href="#testimonials"
+               onclick="showTestimonials()">Testimonials</a>
+            <a class="list-group-item list-group-item-action bg-light" onclick="openPortfolio()">View
+                Site</a>
+        </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
+
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
+                    class="navbar-toggler"
+                    data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="modal" href="#myModal">Developer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+
+            <!--            my details start-->
+            <div class="details" id="details">
+                <h1 class="mt-4">My Details</h1>
+                <div class="card">
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input class="form-control" id="username" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input class="form-control" id="email" placeholder="Email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input class="form-control" id="phone" placeholder="Phone">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Job</label>
+                                        <input class="form-control" id="job" placeholder="Job">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>About</label>
+                                <textarea class="form-control" id="about-user" placeholder="About" rows="5"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-sm btn-success" onclick="saveDetailsData()">Save</button>
+                                <button class="btn btn-sm btn-success" onclick="getDetailsData()">Fetch</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--            my details end-->
+
+
+            <!--            education start-->
+            <div class="education" id="education">
+                <h1 class="mt-4">Education</h1>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="form-group">
+                            <label>Course Title</label>
+                            <input class="form-control" id="course" placeholder="Course Title">
+                        </div>
+
+                        <div class="form-group">
+                            <label>School Name</label>
+                            <input class="form-control" id="school" placeholder="School">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Dates</label>
+                            <input class="form-control" id="dates" placeholder="Eg. 2010-2020">
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-education" onclick="saveEducationData()">
+                                Save
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="education-display">
+                    <div class="card" id="education-display">
+                        <!--                    display data-->
+                    </div>
+                </div>
+
+            </div>
+            <!--education end-->
+
+            <!--            project start-->
+            <div class="project" id="project">
+                <h1 class="mt-4">Project</h1>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Name</label>
+                                    <input class="form-control" id="project-name" placeholder="Project Name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Link to project</label>
+                                    <input class="form-control" id="project-link" placeholder="Link to project">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Image</label>
+                                    <input class="form-control" id="project-image" placeholder="Project Image"
+                                           type="file">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Project Image View</label>
+                                    <div id="view-image">
+                                        <img alt="image" height="100" src="" width="100">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>About Project</label>
+                            <textarea class="form-control" id="about-project" rows="5" placeholder="About"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-project" onclick="saveProjectData()">Save
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="display-project">
+                    <div class="card" id="display-project">
+                        <!--                    display projects-->
+                    </div>
+                </div>
+
+            </div>
+            <!--project end-->
+
+            <!--            skills start-->
+            <div class="skills" id="skills">
+                <h1 class="mt-4">Skills</h1>
+
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Name</label>
+                                    <input class="form-control" id="skill-name" placeholder="Skill Name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Level</label>
+                                    <select class="form-control" id="skill-level">
+                                        <option>Intermediate</option>
+                                        <option>Beginner</option>
+                                        <option>Pro</option>
+                                        <option>Expert</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill %</label>
+                                    <input class="form-control" id="skill-percentage"
+                                           placeholder="Skill Percentage eg.60%">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Skill Description</label>
+                                    <textarea class="form-control" id="skill-description"
+                                              placeholder="Skill Description">
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-sm btn-success" id="save-skill" onclick="saveSkillsData()">Save</button>
+
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="skill-display">
+                    <div class="card" id="skill-display">
+                        <!--                    display data-->
+                    </div>
+                </div>
+
+            </div>
+            <!--skills end-->
+
+            <!--            Testimonials start-->
+            <div class="testimonials" id="testimonials">
+                <h1 class="mt-4">Testimonials</h1>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Person Name</label>
+                                    <input class="form-control" id="testimonial-name" placeholder="Person Name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input class="form-control" id="testimonial-company" placeholder="Company">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="testimony-text" placeholder="Testimony"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-testimony" onclick="saveTestimonialData()">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="testimonials-display">
+                    <div class="card" id="testimonials-display">
+                        <!--                    display data-->
+                    </div>
+                </div>
+
+            </div>
+            <!--            Testimonials end-->
+
+            <!--            Experience start-->
+            <div class="experience" id="experience">
+                <h1 class="mt-4">Experience</h1>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Work Title</label>
+                                    <input class="form-control" id="work-title" placeholder="Work Title">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Company</label>
+                                    <input class="form-control" id="work-company" placeholder="Company">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>Start Date</label>
+                                    <input class="form-control" id="work-start" placeholder="Start Date">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label>End Date</label>
+                                    <input class="form-control" id="work-end" placeholder="End Date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea class="form-control" id="work-description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-success" id="save-experience" onclick="saveExperienceData()">
+                                Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                </br>
+
+                <div class="testimonials-display">
+                    <div class="card" id="testimonials-display">
+                        <!--                    display data-->
+                    </div>
+                </div>
+
+            </div>
+            <!--            Experience end-->
+
+        </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- developer modal start -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">About Developer</h4>
+                <button class="close" data-dismiss="modal" type="button">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <p><b>Developed by: </b> Ng'ang'a Victor</p>
+                <p><b>About: </b> Android dev, Back-end dev and open source enthusiast| Love deadlines| Have an
+                    -𝗮𝗳𝘁𝗶́</p>
+                <p><b>Github: </b><a href="https://github.com/ngangavic"> ngangavic</a></p>
+                <p><b>Twitter: </b><a href="https://twitter.com/ngangavictor"> @ngangavictor</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--developer modal end-->
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-database.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-analytics.js"></script>
+
+<script defer src="https://www.gstatic.com/firebasejs/7.20.0/firebase-storage.js"></script>
+
+<script defer src="init.js"></script>
+
+<script defer src="dashboard.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+<script crossorigin="anonymous"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+    $("#menu-toggle").click(function (e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+</script>
+
+</body>
+</html>
