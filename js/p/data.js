@@ -1,17 +1,17 @@
-firebase.auth().onAuthStateChanged(user => {
-    if (user) {
-        this.userId = user.uid
-        getDetailsData()
-        getProjectsData()
-        getExperienceData()
-        getSkillsData()
-        getTestimonialData()
-        getEducationData()
-    }
 
-})
+if (getUrlParam("code", "empty") === "empty" ||getUrlParam("code", "empty") ==null||getUrlParam("code", "empty") === "") {
+    window.location.replace("../index.html");
+}else{
+    const userId=getUrlParam("code", "empty");
+    getDetailsData(userId)
+    getProjectsData(userId)
+    getExperienceData(userId)
+    getSkillsData(userId)
+    getTestimonialData(userId)
+    getEducationData(userId)
+}
 
-function getEducationData() {
+function getEducationData(userId) {
     const database = firebase.database();
     var getEducation = database.ref("/portfolio/" + userId + "/education/")
     getEducation.once('value', function (snapshot) {
@@ -27,7 +27,7 @@ function getEducationData() {
     })
 }
 
-function getTestimonialData() {
+function getTestimonialData(userId) {
     const database = firebase.database();
     var getTestimony = database.ref("/portfolio/" + userId + "/testimonial/")
     getTestimony.once('value', function (snapshot) {
@@ -46,7 +46,7 @@ function getTestimonialData() {
     })
 }
 
-function getSkillsData() {
+function getSkillsData(userId) {
     const database = firebase.database();
     var getSkills = database.ref("/portfolio/" + userId + "/skills/")
     getSkills.once('value', function (snapshot) {
@@ -70,7 +70,7 @@ function getSkillsData() {
     })
 }
 
-function getExperienceData() {
+function getExperienceData(userId) {
     const database = firebase.database();
     var getExperience = database.ref("/portfolio/" + userId + "/experience/")
     getExperience.once('value', function (snapshot) {
@@ -87,7 +87,7 @@ function getExperienceData() {
     })
 }
 
-function getDetailsData() {
+function getDetailsData(userId) {
     const database = firebase.database();
     var getProperty = database.ref('/portfolio/' + userId + '/my-details')
     getProperty.once('value').then(function (snapshot) {
@@ -103,7 +103,7 @@ function getDetailsData() {
     })
 }
 
-function  getProjectsData() {
+function  getProjectsData(userId) {
     const database = firebase.database();
     var getProject = database.ref('/portfolio/' + userId + '/projects')
     getProject.once('value', function (snapshot) {
@@ -125,4 +125,20 @@ function  getProjectsData() {
         })
         $("#projects-content").append(project);
     })
+}
+
+function getUrlParam(parameter, defaultvalue) {
+    var urlparameter = defaultvalue;
+    if (window.location.href.indexOf(parameter) > -1) {
+        urlparameter = getUrlVars()[parameter];
+    }
+    return urlparameter;
+}
+
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+        vars[key] = value;
+    });
+    return vars;
 }
