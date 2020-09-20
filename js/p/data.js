@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(user => {
 
 function getEducationData() {
     const database = firebase.database();
-    var getEducation = database.ref("/porfolio/" + userId + "/education/")
+    var getEducation = database.ref("/portfolio/" + userId + "/education/")
     getEducation.once('value', function (snapshot) {
 
         var education = '';
@@ -29,7 +29,7 @@ function getEducationData() {
 
 function getTestimonialData() {
     const database = firebase.database();
-    var getTestimony = database.ref("/porfolio/" + userId + "/testimonial/")
+    var getTestimony = database.ref("/portfolio/" + userId + "/testimonial/")
     getTestimony.once('value', function (snapshot) {
 
         var testimony = '';
@@ -48,7 +48,7 @@ function getTestimonialData() {
 
 function getSkillsData() {
     const database = firebase.database();
-    var getSkills = database.ref("/porfolio/" + userId + "/skills/")
+    var getSkills = database.ref("/portfolio/" + userId + "/skills/")
     getSkills.once('value', function (snapshot) {
 
         var skills = '';
@@ -89,7 +89,7 @@ function getExperienceData() {
 
 function getDetailsData() {
     const database = firebase.database();
-    var getProperty = database.ref('/porfolio/' + userId + '/my-details')
+    var getProperty = database.ref('/portfolio/' + userId + '/my-details')
     getProperty.once('value').then(function (snapshot) {
         console.log("DATA:" + snapshot.username)
         document.getElementById("username").innerHTML = snapshot.val().username;
@@ -105,7 +105,7 @@ function getDetailsData() {
 
 function  getProjectsData() {
     const database = firebase.database();
-    var getProject = database.ref('/porfolio/' + userId + '/projects')
+    var getProject = database.ref('/portfolio/' + userId + '/projects')
     getProject.once('value', function (snapshot) {
 
         var project = '';
