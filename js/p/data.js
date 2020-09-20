@@ -6,9 +6,26 @@ firebase.auth().onAuthStateChanged(user => {
         getExperienceData()
         getSkillsData()
         getTestimonialData()
+        getEducationData()
     }
 
 })
+
+function getEducationData() {
+    const database = firebase.database();
+    var getEducation = database.ref("/porfolio/" + userId + "/education/")
+    getEducation.once('value', function (snapshot) {
+
+        var education = '';
+        snapshot.forEach(function (childSnapshot) {
+            education+='<div class="item">\n' +
+                '                            <h3 class="title"><i class="fas fa-graduation-cap"></i> ' + childSnapshot.val().course + '</h3>\n' +
+                '                            <h4 class="university">' + childSnapshot.val().school + '<span class="year">(' + childSnapshot.val().dates + ')</span></h4>\n' +
+                '                        </div>'
+        })
+        $("#education-content").append(education);
+    })
+}
 
 function getTestimonialData() {
     const database = firebase.database();
